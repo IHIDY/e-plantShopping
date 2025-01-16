@@ -255,6 +255,7 @@ function ProductList() {
     };
 
     const handleAddToCart = (product) => {
+        // console.log(product)
         dispatch(addItem(product));
         setAddedToCart((prevState) => ({
             ...prevState,
@@ -301,7 +302,7 @@ function ProductList() {
                                         {/* The price of each product */}
                                         <p className="product-price">{plant.cost}</p>
                                         {/* Add-to-cart Button */}
-                                        <button className="product-button" onClick={(e) => handleAddToCart(e)}>Add to Cart</button>
+                                        <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
                                     </div>
                                 ))}
                             </div>
