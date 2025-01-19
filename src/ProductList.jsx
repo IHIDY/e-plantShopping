@@ -306,7 +306,7 @@ function ProductList() {
                                         {/* The price of each product */}
                                         <p className="product-price">{plant.cost}</p>
                                         {/* Add-to-cart Button */}
-                                        <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                        <button className={addedToCart[plant.name] ? "product-button.added-to-cart" : "product-button"} onClick={() => handleAddToCart(plant)} disabled={addedToCart[plant.name]}>Add to Cart</button>
                                     </div>
                                 ))}
                             </div>
@@ -316,8 +316,9 @@ function ProductList() {
 
             ) : (
                 <CartItem onContinueShopping={handleContinueShopping} showComingSoon={showComingSoon} setShowComingSoon={setShowComingSoon} />
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 }
 
