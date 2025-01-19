@@ -315,7 +315,7 @@ function ProductList() {
                 </div>
 
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} showComingSoon={showComingSoon} setShowComingSoon={setShowComingSoon} />
+                <CartItem onContinueShopping={handleContinueShopping} showComingSoon={showComingSoon} setShowComingSoon={setShowComingSoon} setAddedToCart={setAddedToCart} />
             )
             }
         </div >
