@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 
 function ProductList() {
     const dispatch = useDispatch();
+    const [showComingSoon, setShowComingSoon] = useState(false);
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
@@ -241,10 +242,12 @@ function ProductList() {
     }
     const handleCartClick = (e) => {
         e.preventDefault();
+        setShowComingSoon(false);
         setShowCart(true); // Set showCart to true when cart icon is clicked
     };
     const handlePlantsClick = (e) => {
         e.preventDefault();
+        setShowComingSoon(false);
         setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
         setShowCart(false); // Hide the cart when navigating to About Us
     };
@@ -252,6 +255,7 @@ function ProductList() {
     const handleContinueShopping = (e) => {
         e.preventDefault();
         setShowCart(false);
+        setShowComingSoon(false);
     };
 
     const handleAddToCart = (product) => {
@@ -311,7 +315,7 @@ function ProductList() {
                 </div>
 
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} />
+                <CartItem onContinueShopping={handleContinueShopping} showComingSoon={showComingSoon} setShowComingSoon={setShowComingSoon} />
             )}
         </div>
     );
